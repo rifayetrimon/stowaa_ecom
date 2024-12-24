@@ -1,11 +1,13 @@
 from pydantic import BaseModel, Field
+from typing import Optional
 
 
 class ProductBase(BaseModel):
     name: str
-    description: str | None = None
+    description: Optional[str] = None
     price: float
     stock: int
+    category_id: Optional[int]  # Foreign key to the Category table
 
 
 class CreateProduct(ProductBase):
